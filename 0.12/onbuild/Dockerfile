@@ -1,4 +1,4 @@
-FROM node:0.12.16
+FROM ip4368/node-armhf:0.0.0
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
