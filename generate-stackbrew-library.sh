@@ -13,7 +13,7 @@ self="$(basename "$BASH_SOURCE")"
 
 versions=( */ )
 versions=( "${versions[@]%/}" )
-url='https://github.com/nodejs/docker-node'
+url='https://github.com/ip4368/docker-node'
 
 # sort version numbers with highest first
 IFS=$'\n'; versions=( $(echo "${versions[*]}" | sort -r) ); unset IFS
@@ -26,6 +26,8 @@ fileCommit() {
 echo "# this file is generated via ${url}/blob/$(fileCommit "$self")/$self"
 echo
 echo "Maintainers: The Node.js Docker Team <${url}> (@nodejs)"
+echo "Forked by: ip4368"
+echo "Reason: provide armhf support"
 echo "GitRepo: ${url}.git"
 echo
 
