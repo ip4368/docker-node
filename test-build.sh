@@ -40,7 +40,7 @@ for version in "${versions[@]}"; do
     info "Build of $tag succeeded."
   fi
 
-  OUTPUT=$(docker run --rm -it node:$tag node -e "process.stdout.write(process.versions.node)")
+  OUTPUT=$(docker run --rm -it ip4368/node-armhf:$tag node -e "process.stdout.write(process.versions.node)")
   if [ "$OUTPUT" != "$tag" ]; then
     fatal "Test of $tag failed!"
   else
@@ -59,7 +59,7 @@ for version in "${versions[@]}"; do
       info "Build of $tag-$variant succeeded."
     fi
 
-    OUTPUT=$(docker run --rm -it node:$tag-$variant node -e "process.stdout.write(process.versions.node)")
+    OUTPUT=$(docker run --rm -it ip4368/node-armhf:$tag-$variant node -e "process.stdout.write(process.versions.node)")
     if [ "$OUTPUT" != "$tag" ]; then
       fatal "Test of $tag-$variant failed!"
     else
