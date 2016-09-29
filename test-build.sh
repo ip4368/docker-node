@@ -32,7 +32,7 @@ for version in "${versions[@]}"; do
   tag=$(cat $version/Dockerfile | grep "ENV NODE_VERSION" | cut -d' ' -f3)
 
   info "Building $tag..."
-  docker build -t node:$tag $version
+  docker build -t ip4368/node-arm64:$tag $version
 
   if [[ $? -gt 0 ]]; then
     fatal "Build of $tag failed!"
@@ -40,7 +40,7 @@ for version in "${versions[@]}"; do
     info "Build of $tag succeeded."
   fi
 
-  OUTPUT=$(docker run --rm -it node:$tag node -e "process.stdout.write(process.versions.node)")
+  OUTPUT=$(docker run --rm -it ip4368/node-arm64:$tag node -e "process.stdout.write(process.versions.node)")
   if [ "$OUTPUT" != "$tag" ]; then
     fatal "Test of $tag failed!"
   else
@@ -51,7 +51,7 @@ for version in "${versions[@]}"; do
 
   for variant in $variants; do
     info "Building $tag-$variant variant..."
-    docker build -t node:$tag-$variant $version/$variant
+    docker build -t ip4368/node-arm64:$tag-$variant $version/$variant
 
     if [[ $? -gt 0 ]]; then
       fatal "Build of $tag-$variant failed!"
@@ -59,7 +59,7 @@ for version in "${versions[@]}"; do
       info "Build of $tag-$variant succeeded."
     fi
 
-    OUTPUT=$(docker run --rm -it node:$tag-$variant node -e "process.stdout.write(process.versions.node)")
+    OUTPUT=$(docker run --rm -it ip4368/node-arm64:$tag-$variant node -e "process.stdout.write(process.versions.node)")
     if [ "$OUTPUT" != "$tag" ]; then
       fatal "Test of $tag-$variant failed!"
     else
