@@ -1,4 +1,4 @@
-FROM ip4368/node-arm64:6.7.0
+FROM ip4368/node-arm64:6.9.1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

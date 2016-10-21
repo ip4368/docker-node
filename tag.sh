@@ -4,7 +4,7 @@ set -e
 repo='ip4368/node-arm64';
 
 array_4_6='4 argon';
-array_6_7='6 latest';
+array_6_9='6 latest';
 
 cd $(cd ${0%/*} && pwd -P);
 
