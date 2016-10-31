@@ -4,7 +4,8 @@ set -e
 repo='ip4368/node-armhf';
 
 array_4_6='4 argon';
-array_6_9='6 latest';
+array_6_9='6 boron';
+array_7_0='7 latest';
 
 cd $(cd ${0%/*} && pwd -P);
 
